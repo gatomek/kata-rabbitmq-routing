@@ -25,27 +25,15 @@ public class ListenerApplication {
         return new AnonymousQueue();
     }
 
-    @Profile("odd")
+    @Profile({"odd", "all"})
     @Bean
     public Binding oddBinding(Queue queue, DirectExchange directExchange) {
         return BindingBuilder.bind(queue).to(directExchange).with("odd");
     }
 
-    @Profile("even")
+    @Profile({"even", "all"})
     @Bean
     public Binding evenBinding(Queue queue, DirectExchange directExchange) {
-        return BindingBuilder.bind(queue).to(directExchange).with("even");
-    }
-
-    @Profile("all")
-    @Bean
-    public Binding oddAllBinding(Queue queue, DirectExchange directExchange) {
-        return BindingBuilder.bind(queue).to(directExchange).with("odd");
-    }
-
-    @Profile("all")
-    @Bean
-    public Binding evenAllBinding(Queue queue, DirectExchange directExchange) {
         return BindingBuilder.bind(queue).to(directExchange).with("even");
     }
 }
