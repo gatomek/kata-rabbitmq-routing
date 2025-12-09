@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Listener {
 
-    @RabbitListener(queues = "#{anonymouseQueue.name}")
+    @RabbitListener(queues = "#{anonymousQueue.name}")
     public void receiveNumber(String value) {
         log.info("Received: {}", value);
     }

@@ -23,7 +23,7 @@ public class Scheduler {
         long val = ThreadLocalRandom.current().nextLong(1000);
         String routingKey = (val % 2 == 0) ? EVEN : ODD;
         String message = String.valueOf(val);
-        log.info( "Publishing {} @ {}", message, routingKey);
+        log.info("Publishing {} @ {}", message, routingKey);
         rabbitTemplate.convertAndSend(ProducerApplication.NUMBER_EXCHANGE, routingKey, message);
     }
 }
